@@ -4,30 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- SEO & Identity -->
     <title>INSPIRØØ — Pense Menos, Crie Mais</title>
     <meta name="description" content="O caderno criativo digital. Transforme ideias cruas em startups e projetos reais. Junte-se à comunidade de criadores." />
     <meta name="theme-color" content="#09090b" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://inspiroo.app/" />
     <meta property="og:title" content="INSPIRØØ — Pense Menos, Crie Mais" />
     <meta property="og:description" content="Pare de guardar ideias na gaveta. O caderno criativo que estrutura, valida e conecta sua próxima grande ideia." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=1200&h=630&auto=format&fit=crop" />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://inspiroo.app/" />
     <meta property="twitter:title" content="INSPIRØØ — Pense Menos, Crie Mais" />
     <meta property="twitter:description" content="Pare de guardar ideias na gaveta. O caderno criativo que estrutura, valida e conecta sua próxima grande ideia." />
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=1200&h=630&auto=format&fit=crop" />
 
-    <!-- Tailwind via CDN (Mantendo para garantir estilos sem build complexo de CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Patrick+Hand&family=Permanent+Marker&family=Rock+Salt&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    
-    <!-- Configuração do Tailwind -->
+
     <script>
       tailwind.config = {
         theme: {
@@ -41,136 +36,28 @@
               pen: ['Nanum Pen Script', 'cursive'],
             },
             colors: {
-              'brand-yellow': '#FACC15', // Electric Yellow highlighter
-              'paper-white': '#fdfbf7', // Warm paper
+              'brand-yellow': '#FACC15',
+              'paper-white': '#fdfbf7',
               'paper-grid': '#e5e7eb',
               'ink-black': '#18181b',
-            },
-            animation: {
-              'blob': 'blob 10s infinite',
-              'wiggle': 'wiggle 1s ease-in-out infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'sketch': 'sketch 0.4s ease-out forwards',
-            },
-            keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
-              wiggle: {
-                '0%, 100%': { transform: 'rotate(-3deg)' },
-                '50%': { transform: 'rotate(3deg)' },
-              },
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              sketch: {
-                '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
-                '100%': { strokeDashoffset: '0' },
-              }
-            },
-            backgroundImage: {
-              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
-              'grid-paper': "radial-gradient(#d1d5db 1px, transparent 1px)",
-              'lined-paper': "linear-gradient(#e5e7eb 1px, transparent 1px)",
             }
           }
         }
-      }
+      };
     </script>
+
     <style>
       body {
-        background-color: #09090b; /* Zinc 950 */
+        background-color: #09090b;
         color: #f8fafc;
         overflow-x: hidden;
       }
-      
-      /* Noise Overlay */
-      .bg-noise {
-        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-        opacity: 0.07;
-        pointer-events: none;
-      }
-
-      /* Realistic Tape Effect */
-      .tape-strip {
-        background-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        backdrop-filter: blur(5px);
-        transform: rotate(-2deg);
-        border-left: 1px dashed rgba(255,255,255,0.1);
-        border-right: 1px dashed rgba(255,255,255,0.1);
-      }
-
-      /* Paper Shadow */
-      .paper-shadow {
-        box-shadow: 
-          0 1px 1px rgba(0,0,0,0.1),
-          0 10px 20px rgba(0,0,0,0.2),
-          0 20px 40px rgba(0,0,0,0.2);
-      }
-
-      /* Highlighter Effect */
-      .marker-highlight {
-        background: linear-gradient(100deg, rgba(250, 204, 21, 0) 1%, rgba(250, 204, 21, 0.8) 2%, rgba(250, 204, 21, 0.6) 98%, rgba(250, 204, 21, 0) 99%);
-        border-radius: 4px 10px 4px 12px;
-        padding: 0 6px;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-      }
-
-      .marker-highlight-pink {
-        background: linear-gradient(100deg, rgba(244, 114, 182, 0) 1%, rgba(244, 114, 182, 0.6) 2%, rgba(244, 114, 182, 0.4) 98%, rgba(244, 114, 182, 0) 99%);
-        border-radius: 2px 8px 3px 9px;
-        padding: 0 4px;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-      }
-
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #09090b; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #3f3f46; 
-        border-radius: 5px;
-        border: 2px solid #09090b;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #FACC15; 
-      }
-
-      /* Handwriting input */
-      textarea::placeholder {
-        color: #9ca3af;
-        opacity: 0.6;
-        font-family: 'Patrick Hand', cursive;
-      }
     </style>
-    <!-- Link para o Manifesto PWA -->
+
     <link rel="manifest" href="/metadata.json">
     <link rel="apple-touch-icon" href="https://api.dicebear.com/7.x/shapes/svg?seed=inspiroo&backgroundColor=FACC15">
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "vite": "https://aistudiocdn.com/vite@^7.2.6",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+  </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
