@@ -465,6 +465,242 @@ footer p {
   padding: 60px 0;
 }
 
+/* === SIGNATURE TOOLTIP === */
+.sig-tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: help;
+}
+.sig-info-icon {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.55rem;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.sig-tooltip-wrap:hover .sig-info-icon { opacity: 0.9; }
+
+.sig-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 16px;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 50;
+  text-align: left;
+  box-shadow: 4px 4px 0 var(--voice-color, var(--gold));
+}
+.sig-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; right: 20px;
+  width: 10px; height: 6px;
+  background: var(--ink);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.sig-tooltip-wrap:hover .sig-tooltip,
+.sig-tooltip-wrap:focus-within .sig-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sig-tooltip strong {
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+  color: var(--voice-color, var(--gold));
+}
+
+/* === NUDGE PHRASE === */
+.nudge-phrase {
+  width: 100%;
+  max-width: 580px;
+  text-align: center;
+  margin-top: 48px;
+  padding: 0 10px;
+}
+.nudge-phrase p {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-faint);
+  line-height: 1.7;
+  opacity: 0.65;
+}
+.nudge-phrase p span {
+  color: var(--gold);
+  opacity: 1;
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(18,10,4,0.75);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal {
+  background: var(--paper-light);
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 48px 44px;
+  position: relative;
+  box-shadow: 8px 8px 40px rgba(18,10,4,0.4), 0 0 0 1px rgba(184,146,42,0.2);
+  transform: translateY(20px);
+  transition: transform 0.35s cubic-bezier(.16,1,.3,1);
+}
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+.modal::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(to bottom, var(--peniel), var(--kol), var(--ehyeh));
+  opacity: 0.5;
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 18px;
+  background: none;
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.modal-close:hover { opacity: 1; }
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+.modal h2 {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.modal-voice-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(28,16,8,0.08);
+}
+.modal-voice-item:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.modal-voice-accent {
+  width: 3px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.modal-voice-body {}
+.modal-voice-name {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.modal-voice-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 8px;
+  display: block;
+}
+.modal-voice-desc {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.modal-footer-text {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(28,16,8,0.1);
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* === FOOTER LINK === */
+.footer-link {
+  background: none;
+  border: none;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  opacity: 0.45;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+  margin-top: 10px;
+  display: block;
+  text-decoration: none;
+}
+.footer-link:hover { opacity: 0.9; }
+
+@media (max-width: 520px) {
+  .modal { padding: 40px 24px; }
+  .sig-tooltip { width: 200px; font-size: 0.78rem; }
+}
+
+/* existing responsive below */
 @media (max-width: 520px) {
   .book-card { padding: 44px 28px 40px; }
   .card-ornament-top, .card-ornament-bottom { left: 20px; right: 20px; }
@@ -506,7 +742,14 @@ footer p {
       <p class="message-text" id="messageText"><span class="loading-msg">Abrindo o livro...</span></p>
       <div class="signature" id="signature" style="display:none">
         <div class="sig-rule" id="sigRule"></div>
-        <div class="sig-name" id="sigName"></div>
+        <div class="sig-tooltip-wrap" id="sigTooltipWrap" tabindex="0">
+          <div class="sig-name" id="sigName"></div>
+          <div class="sig-info-icon" id="sigInfoIcon">i</div>
+          <div class="sig-tooltip" id="sigTooltip">
+            <strong id="sigTooltipTitle"></strong>
+            <span id="sigTooltipText"></span>
+          </div>
+        </div>
         <div class="sig-meaning" id="sigMeaning"></div>
       </div>
     </div>
@@ -525,6 +768,10 @@ footer p {
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       Copiar
     </button>
+  </div>
+
+  <div class="nudge-phrase">
+    <p><span>Três vozes. Uma só Presença.</span><br>Hoje, qual delas quer falar com você?</p>
   </div>
 
   <div class="voices-section">
@@ -557,8 +804,50 @@ footer p {
       <div class="footer-rule-line"></div>
     </div>
     <p>Inspiroo.com.br &mdash; Antes de Desistir, Leia Isto</p>
+    <button class="footer-link" onclick="openModal()">O que significam estas assinaturas? ✦</button>
   </footer>
 
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Significado das vozes">
+    <button class="modal-close" onclick="closeModal()">Fechar ✕</button>
+    <div class="modal-title">As três vozes</div>
+    <h2>Estes não são autores comuns.<br>São nomes pelos quais Deus se revelou.</h2>
+
+    <div class="modal-voice-item">
+      <div class="modal-voice-accent" style="background: var(--peniel)"></div>
+      <div class="modal-voice-body">
+        <div class="modal-voice-name" style="color: var(--peniel)">Peniel</div>
+        <span class="modal-voice-ref">Face de Deus · Gênesis 32</span>
+        <p class="modal-voice-desc">Jacó lutou a noite toda e, ao amanhecer, disse: "Vi a Deus face a face." Peniel é a voz que fala quando você está na luta — que te fortalece quando você precisa persistir, mesmo sem entender o porquê.</p>
+      </div>
+    </div>
+
+    <div class="modal-voice-item">
+      <div class="modal-voice-accent" style="background: var(--kol)"></div>
+      <div class="modal-voice-body">
+        <div class="modal-voice-name" style="color: var(--kol)">Kol D'mamah</div>
+        <span class="modal-voice-ref">Voz mansa e delicada · 1 Reis 19</span>
+        <p class="modal-voice-desc">Elias estava exausto e queria desistir. Depois do fogo e do vento forte, veio uma voz — suave, quase inaudível. Kol D'mamah é o sussurro que acalma quando você precisa parar e escutar o que há dentro de você.</p>
+      </div>
+    </div>
+
+    <div class="modal-voice-item">
+      <div class="modal-voice-accent" style="background: var(--ehyeh)"></div>
+      <div class="modal-voice-body">
+        <div class="modal-voice-name" style="color: var(--ehyeh)">Ehyeh</div>
+        <span class="modal-voice-ref">Eu Sou · Êxodo 3</span>
+        <p class="modal-voice-desc">Moisés perguntou: "Quem és Tu?" E a resposta foi: "Eu Sou o que Sou." Ehyeh é a voz da presença pura — aquela que te lembra quem você é, quando você esqueceu a si mesmo.</p>
+      </div>
+    </div>
+
+    <p class="modal-footer-text">
+      "Cada assinatura é um dos nomes que Deus usou para se revelar.<br>
+      Hoje, Ele pode estar falando com você através de qualquer uma delas."
+    </p>
+  </div>
 </div>
 
 <div class="toast" id="toast">Copiado com sucesso</div>
@@ -569,9 +858,24 @@ const MENSAGENS=[{"numero":1,"voz":"Ehyeh","mensagem":"Sabe aquela sensação de
 const SITE_URL = 'https://inspiroo.com.br';
 
 const VOICES = {
-  'Peniel':       { color: '#8B3A0F', meaning: 'coragem' },
-  "Kol D'mamah": { color: '#2C4A6B', meaning: 'silêncio' },
-  'Ehyeh':       { color: '#7A6020', meaning: 'presença' }
+  'Peniel': {
+    color: '#8B3A0F',
+    meaning: 'coragem',
+    tooltipTitle: 'Peniel — Face de Deus (Gn 32)',
+    tooltipText: 'A voz que te fortalece na luta, quando você precisa persistir.'
+  },
+  "Kol D'mamah": {
+    color: '#2C4A6B',
+    meaning: 'silêncio',
+    tooltipTitle: "Kol D'mamah — Voz mansa e delicada (1Rs 19)",
+    tooltipText: 'O sussurro que te acalma, quando você precisa escutar.'
+  },
+  'Ehyeh': {
+    color: '#7A6020',
+    meaning: 'presença',
+    tooltipTitle: 'Ehyeh — Eu Sou (Êx 3)',
+    tooltipText: 'A presença que te lembra quem você é, quando você precisa de identidade.'
+  }
 };
 
 let currentMsg = null;
@@ -603,6 +907,14 @@ function showMessage(msg, label) {
   document.getElementById('sigRule').style.background = v.color;
   document.getElementById('sigName').textContent = msg.voz;
   document.getElementById('sigMeaning').textContent = v.meaning;
+
+  // Tooltip
+  const wrap = document.getElementById('sigTooltipWrap');
+  wrap.style.setProperty('--voice-color', v.color);
+  document.getElementById('sigInfoIcon').style.color = v.color;
+  document.getElementById('sigTooltipTitle').textContent = v.tooltipTitle || msg.voz;
+  document.getElementById('sigTooltipText').textContent = v.tooltipText || '';
+  document.getElementById('sigTooltip').style.setProperty('--voice-color', v.color);
 
   // Drop cap color
   const card = document.getElementById('card');
@@ -652,6 +964,19 @@ function copyText() {
     setTimeout(() => t.classList.remove('show'), 2800);
   });
 }
+
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 init();
 </script>
