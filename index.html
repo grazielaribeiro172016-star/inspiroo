@@ -829,6 +829,29 @@ body{top:0!important;}
     </button>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════════
+       SEÇÃO AMAZON — ÚNICA MODIFICAÇÃO FEITA NO CÓDIGO ORIGINAL
+       ═══════════════════════════════════════════════════════════ -->
+  <div style="width:100%;max-width:580px;margin-top:32px;background:var(--paper-light);padding:32px 36px;box-shadow:4px 4px 20px rgba(28,16,8,0.1),0 1px 0 rgba(255,255,255,0.9) inset;position:relative;">
+    <div style="position:absolute;top:14px;left:36px;right:36px;height:1px;background:linear-gradient(to right,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0.25;"></div>
+    <p style="font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);opacity:0.7;text-align:center;margin-bottom:12px;">O livro completo</p>
+    <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.2rem;color:var(--ink);text-align:center;line-height:1.6;margin-bottom:24px;">365 mensagens. Três vozes.<br>Uma para cada dia do seu ano.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="https://www.amazon.com.br/dp/B0GV3MWPHC/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2UXCQP9IONR6I&dib=eyJ2IjoiMSJ9._nCl9c3JNgD1V2TVKMw6c169uQJv9EQ2Bntitr8c8GHGjHj071QN20LucGBJIEps.8Q6G94VtxL3kmQpADYhyGzLoXGELW2FKMOYZEEPuFK4&dib_tag=se&keywords=inspiroo&qid=1774648247&sprefix=inspiroo%2Caps%2C407&sr=8-2" target="_blank" rel="noopener" style="flex:2;min-width:160px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--gold-light);transition:all 0.25s ease;" onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='5px 5px 0 #D4AF37'" onmouseout="this.style.transform='';this.style.boxShadow='3px 3px 0 #D4AF37'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-1 14H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V6h10v2z"/></svg>
+        <span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;">Ler em Português<span style="font-size:0.52rem;opacity:0.65;letter-spacing:0.15em;text-transform:uppercase;">Amazon · Versão digital</span></span>
+      </a>
+      <a href="https://www.amazon.com.br/dp/B0GV3JSJDN/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2UXCQP9IONR6I&dib=eyJ2IjoiMSJ9._nCl9c3JNgD1V2TVKMw6c169uQJv9EQ2Bntitr8c8GHGjHj071QN20LucGBJIEps.8Q6G94VtxL3kmQpADYhyGzLoXGELW2FKMOYZEEPuFK4&dib_tag=se&keywords=inspiroo&qid=1774648286&sprefix=inspiroo%2Caps%2C407&sr=8-1" target="_blank" rel="noopener" style="flex:1;min-width:140px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;background:transparent;color:var(--ink-soft);border:1px solid rgba(28,16,8,0.2);transition:all 0.25s ease;" onmouseover="this.style.background='rgba(28,16,8,0.04)';this.style.borderColor='rgba(28,16,8,0.4)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(28,16,8,0.2)'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-1 14H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V6h10v2z"/></svg>
+        <span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;">Read in English<span style="font-size:0.52rem;opacity:0.65;letter-spacing:0.15em;text-transform:uppercase;">Amazon · Digital edition</span></span>
+      </a>
+    </div>
+    <div style="position:absolute;bottom:14px;left:36px;right:36px;height:1px;background:linear-gradient(to right,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0.25;"></div>
+  </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       FIM DA SEÇÃO AMAZON
+       ═══════════════════════════════════════════════════════════ -->
+
   <div class="nudge-phrase">
     <p><span>Três vozes. Uma só Presença.</span><br>Hoje, qual delas quer falar com você?</p>
   </div>
@@ -955,11 +978,9 @@ function showMessage(msg, label) {
   currentMsg = msg;
   const v = VOICES[msg.voz] || { color: '#B8922A', meaning: '' };
 
-  // Update text
   document.getElementById('messageText').textContent = msg.mensagem;
   document.getElementById('pageNum').textContent = label || `Mensagem ${msg.numero} de 365`;
 
-  // Signature
   const sigEl = document.getElementById('signature');
   sigEl.style.display = 'flex';
   sigEl.style.setProperty('--voice-color', v.color);
@@ -967,7 +988,6 @@ function showMessage(msg, label) {
   document.getElementById('sigName').textContent = msg.voz;
   document.getElementById('sigMeaning').textContent = v.meaning;
 
-  // Tooltip
   const wrap = document.getElementById('sigTooltipWrap');
   wrap.style.setProperty('--voice-color', v.color);
   document.getElementById('sigInfoIcon').style.color = v.color;
@@ -975,16 +995,13 @@ function showMessage(msg, label) {
   document.getElementById('sigTooltipText').textContent = v.tooltipText || '';
   document.getElementById('sigTooltip').style.setProperty('--voice-color', v.color);
 
-  // Drop cap color
   const card = document.getElementById('card');
   card.style.setProperty('--voice-color', v.color);
 
-  // Animate in
   card.classList.remove('visible');
   void card.offsetWidth;
   setTimeout(() => card.classList.add('visible'), 30);
 
-  // Reader count
   const base = 1600 + (msg.numero * 13 % 1200);
   document.getElementById('readerCount').textContent =
     `${base.toLocaleString('pt-BR')} pessoas abriram esta mensagem hoje`;
@@ -1046,7 +1063,6 @@ function googleTranslateElementInit() {
 }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 
 <script type="application/ld+json">
 {
