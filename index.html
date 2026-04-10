@@ -419,6 +419,7 @@ header {
 footer {
   margin-top: 60px;
   text-align: center;
+  width: 100%;
 }
 .footer-rule {
   display: flex;
@@ -701,13 +702,48 @@ footer p {
 }
 .footer-link:hover { opacity: 1; }
 
+/* === GOOGLE TRANSLATE SUTIL NO RODAPÉ === */
+.translate-footer {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0.55;
+  transition: opacity 0.25s;
+  flex-wrap: wrap;
+}
+.translate-footer:hover { opacity: 0.85; }
+.translate-footer-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.goog-te-gadget-simple {
+  background: transparent !important;
+  border: 1px solid rgba(28,16,8,0.18) !important;
+  border-radius: 0 !important;
+  padding: 3px 8px !important;
+  font-family: 'Cinzel', serif !important;
+}
+.goog-te-gadget-simple span,
+.goog-te-gadget-simple a {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.58rem !important;
+  letter-spacing: 0.15em !important;
+  color: var(--ink-faint) !important;
+  text-transform: uppercase !important;
+}
+.goog-logo-link { display: none !important; }
+.goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+
 @media (max-width: 520px) {
   .modal { padding: 40px 24px; }
   .sig-tooltip { width: 200px; font-size: 0.78rem; }
-}
-
-/* existing responsive below */
-@media (max-width: 520px) {
   .book-card { padding: 44px 28px 40px; }
   .card-ornament-top, .card-ornament-bottom { left: 20px; right: 20px; }
   .voices-grid { grid-template-columns: 1fr; }
@@ -731,46 +767,8 @@ footer p {
 <link rel="alternate" hreflang="en" href="https://seusite.com/?lang=en">
 <link rel="alternate" hreflang="es" href="https://seusite.com/?lang=es">
 
-
-<style>
-.language-switcher{
-position:fixed;
-top:20px;
-right:20px;
-background:#111;
-color:white;
-padding:10px 15px;
-border-radius:30px;
-font-size:14px;
-font-family:Arial,sans-serif;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-z-index:9999;
-}
-
-.language-switcher select{
-border:none;
-background:transparent;
-color:white;
-font-size:14px;
-outline:none;
-cursor:pointer;
-}
-
-.goog-logo-link{display:none!important;}
-.goog-te-gadget{color:transparent!important;font-size:0;}
-.goog-te-banner-frame{display:none!important;}
-body{top:0!important;}
-</style>
-
 </head>
 <body>
-<div class="language-switcher">
-🌍 Idioma
-<div id="google_translate_element"></div>
-</div>
-
-<div id="google_translate_element" style="position:absolute; top:10px; right:10px; z-index:9999;"></div>
-
 
 <div class="side-ornament left"></div>
 <div class="side-ornament right"></div>
@@ -829,9 +827,7 @@ body{top:0!important;}
     </button>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       SEÇÃO AMAZON — ÚNICA MODIFICAÇÃO FEITA NO CÓDIGO ORIGINAL
-       ═══════════════════════════════════════════════════════════ -->
+  <!-- SEÇÃO AMAZON (mantida original) -->
   <div style="width:100%;max-width:580px;margin-top:32px;background:var(--paper-light);padding:32px 36px;box-shadow:4px 4px 20px rgba(28,16,8,0.1),0 1px 0 rgba(255,255,255,0.9) inset;position:relative;">
     <div style="position:absolute;top:14px;left:36px;right:36px;height:1px;background:linear-gradient(to right,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0.25;"></div>
     <p style="font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);opacity:0.7;text-align:center;margin-bottom:12px;">O livro completo</p>
@@ -848,9 +844,6 @@ body{top:0!important;}
     </div>
     <div style="position:absolute;bottom:14px;left:36px;right:36px;height:1px;background:linear-gradient(to right,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0.25;"></div>
   </div>
-  <!-- ═══════════════════════════════════════════════════════════
-       FIM DA SEÇÃO AMAZON
-       ═══════════════════════════════════════════════════════════ -->
 
   <div class="nudge-phrase">
     <p><span>Três vozes. Uma só Presença.</span><br>Hoje, qual delas quer falar com você?</p>
@@ -887,8 +880,13 @@ body{top:0!important;}
     </div>
     <p>Inspiroo.com.br &mdash; Antes de Desistir, Leia Isto</p>
     <button class="footer-link" onclick="openModal()">O que significam estas assinaturas? ✦</button>
+    
+    <!-- Google Tradutor agora no rodapé, sutil e sem atrapalhar -->
+    <div class="translate-footer">
+      <span class="translate-footer-label">🌍 Idioma</span>
+      <div id="google_translate_element"></div>
+    </div>
   </footer>
-
 </div>
 
 <!-- MODAL -->
